@@ -4,7 +4,7 @@ const Booking=require('../models/Booking')
 
 exports.getUsers=async(req,res,next)=>{
     try {
-        const users= Users.find();
+        const users=await Users.find();
         if(!users){
             return res.status(500).json({message:"Unexpected error occured"});
         }
