@@ -72,8 +72,8 @@ exports.getAdmins = async (req, res)=> {
 
 exports.getAdminById = async (req, res)=> {
     try {
-        const id=req.id
-        const admin=await Admin.findById(id);
+        const id=req.params.id;
+        const admin=await Admin.findById(id).populate("addedMovies");
         if(!admin){
             return res.status(404).json({message:"Unexpected Error Occureed"})
         }

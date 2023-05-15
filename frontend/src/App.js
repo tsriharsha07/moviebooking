@@ -11,6 +11,8 @@ import { adminActions, userActions } from "./store";
 import { useEffect } from 'react';
 import UserProfile from './Profile/UserProfile';
 import Booking from './components/Booking/Booking'
+import AddMovie from './components/movies/AddMovie';
+import AdminProfile from './Profile/AdminProfile';
 
 
 function App() {
@@ -44,6 +46,13 @@ function App() {
               {" "}
               <Route path="/user" element={<UserProfile />} />
               <Route path="/booking/:id" element={<Booking />} />
+            </>
+          )}
+          {isAdminLoggedIn && !isUserLoggedIn && (
+            <>
+              {" "}
+              <Route path="/add" element={<AddMovie />} />
+              <Route path="/user-admin" element={<AdminProfile />} />{" "}
             </>
           )}
         </Routes>
